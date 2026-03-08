@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Profile | SkillSwap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-logo">S</span>
+        <span>SkillSwap</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <a href="signup.html" class="btn btn-brand">Join Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="create-profile-page py-5">
+    <div class="container">
+      <div class="profile-card mx-auto">
+        <div class="text-center mb-4">
+          <h1 class="profile-title">Let’s finish your profile</h1>
+          <p class="profile-subtitle">
+            Tell us a bit about yourself so we can match you with the right peers.
+          </p>
+        </div>
+
+        <form id="createProfileForm">
+          <div class="mb-4">
+            <label for="school" class="form-label">School / University</label>
+            <input
+              type="text"
+              id="school"
+              class="form-control custom-input"
+              placeholder="e.g. KNUST"
+              required
+            >
+          </div>
+
+          <div class="mb-4">
+            <label for="program" class="form-label">Degree / Program</label>
+            <input
+              type="text"
+              id="program"
+              class="form-control custom-input"
+              placeholder="e.g. BSc Information Technology"
+              required
+            >
+          </div>
+
+          <div class="mb-4">
+            <label for="teachInput" class="form-label">Skills I have (to teach)</label>
+            <div class="tag-input-box" id="teachBox">
+              <div class="tags-container" id="teachTags"></div>
+              <input
+                type="text"
+                id="teachInput"
+                class="tag-input"
+                placeholder="HTML/CSS, JavaScript, Graphic Design..."
+              >
+            </div>
+            <small class="helper-text">Type a skill and press Enter</small>
+          </div>
+
+          <div class="mb-4">
+            <label for="learnInput" class="form-label">Skills I want to learn</label>
+            <div class="tag-input-box" id="learnBox">
+              <div class="tags-container" id="learnTags"></div>
+              <input
+                type="text"
+                id="learnInput"
+                class="tag-input"
+                placeholder="Python, UI/UX, Public Speaking..."
+              >
+            </div>
+            <small class="helper-text">Type a skill and press Enter</small>
+          </div>
+
+          <div id="profileFeedback" class="profile-feedback"></div>
+
+          <button type="submit" class="btn btn-brand profile-btn w-100">
+            Complete Profile
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="create-profile.js"></script>
+</body>
+</html>

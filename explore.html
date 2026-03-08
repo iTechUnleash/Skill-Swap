@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Skills | SkillSwap</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-bold d-flex align-items-center gap-2"
+          href="index.html"
+        >
+          <span class="brand-logo">S</span>
+          <span>SkillSwap</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto gap-lg-3">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="explore.html">Explore</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+          </ul>
+
+          <div class="d-flex align-items-center gap-2">
+            <div class="search-box d-none d-lg-flex align-items-center px-3">
+              <i class="bi bi-search text-muted me-2"></i>
+              <input
+                id="navbarSearch"
+                type="text"
+                class="border-0 bg-transparent w-100"
+                placeholder="Search skills..."
+              />
+            </div>
+            <a href="signup.html" class="btn btn-brand">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Explore Hero -->
+    <section class="explore-hero py-5">
+      <div class="container">
+        <div class="explore-hero-box">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <span class="badge badge-soft mb-3">Explore Skills</span>
+              <h1 class="explore-title mb-3">
+                Discover experts ready to trade knowledge with you.
+              </h1>
+              <p class="explore-subtitle mb-0">
+                Browse available skills, find the right learning partner, and
+                request a skill exchange session.
+              </p>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="explore-filter-box">
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label class="form-label">Search skill</label>
+                    <div class="filter-input-wrap">
+                      <i class="bi bi-search"></i>
+                      <input
+                        type="text"
+                        id="skillSearch"
+                        class="form-control filter-input"
+                        placeholder="e.g. UI/UX Design"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Category</label>
+                    <select
+                      id="categoryFilter"
+                      class="form-select custom-select"
+                    >
+                      <option value="all">All Categories</option>
+                      <option value="Design">Design</option>
+                      <option value="Programming">Programming</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Data">Data</option>
+                      <option value="Photography">Photography</option>
+                      <option value="Language">Language</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="form-label">Sort by</label>
+                    <select id="sortFilter" class="form-select custom-select">
+                      <option value="default">Default</option>
+                      <option value="rating">Highest Rated</option>
+                      <option value="reviews">Most Reviews</option>
+                      <option value="title">A - Z</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Pills -->
+        <div class="category-pills mt-4 d-flex flex-wrap gap-2">
+          <button class="pill-btn active" data-category="all">All</button>
+          <button class="pill-btn" data-category="Design">Design</button>
+          <button class="pill-btn" data-category="Programming">
+            Programming
+          </button>
+          <button class="pill-btn" data-category="Marketing">Marketing</button>
+          <button class="pill-btn" data-category="Data">Data</button>
+          <button class="pill-btn" data-category="Photography">
+            Photography
+          </button>
+          <button class="pill-btn" data-category="Language">Language</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Grid -->
+    <section class="pb-5">
+      <div class="container">
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4"
+        >
+          <div>
+            <h2 class="section-title mb-1">Available Skills</h2>
+            <p class="section-subtitle mb-0">
+              Browse skill cards and connect with peers.
+            </p>
+          </div>
+          <span class="results-count" id="resultsCount">0 skills found</span>
+        </div>
+
+        <div class="row g-4" id="exploreSkillsGrid">
+          <!-- JS skill cards -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section pt-5 pb-4">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h5 class="mb-3">SkillExchange</h5>
+            <p class="footer-text">
+              The global platform for collaborative learning. Empowering
+              individuals to share knowledge and build careers together.
+            </p>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h6>Platform</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Popular Skills</a></li>
+              <li><a href="#">Success Stories</a></li>
+              <li><a href="#">Safety & Trust</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h6>Community</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Mentors</a></li>
+              <li><a href="#">Guidelines</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-lg-2">
+            <h6>Company</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between gap-2"
+        >
+          <small>© 2024 SkillExchange Platform Inc. All rights reserved.</small>
+          <small>Terms of Service • Cookie Settings</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Skill Details Modal -->
+    <div
+      class="modal fade"
+      id="skillDetailsModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content details-modal-content">
+          <div class="modal-body p-0" id="skillDetailsContent">
+            <!-- JS inject -->
+            /* Explorer Script start */
+            <script>
+              const skillsData = [
+                {
+                  id: 1,
+                  title: "UI/UX Design",
+                  category: "Design",
+                  description:
+                    "Master Figma and learn user-centric design principles for modern digital products.",
+                  tutor: "Sarah Jenkins",
+                  role: "Product Designer",
+                  reviews: 48,
+                  rating: 4.8,
+                  image: "assets/images/uiux.jpg",
+                  avatar: "assets/images/avatar-sarah.avif",
+                },
+                {
+                  id: 2,
+                  title: "Python Programming",
+                  category: "Programming",
+                  description:
+                    "Go from zero to hero in Python with practical exercises and project-based learning.",
+                  tutor: "David Chen",
+                  role: "Software Engineer",
+                  reviews: 61,
+                  rating: 4.9,
+                  image: "assets/images/python-card.png",
+                  avatar: "assets/images/avatar-david.jpg",
+                },
+                {
+                  id: 3,
+                  title: "Spanish Conversation",
+                  category: "Language",
+                  description:
+                    "Improve your fluency through casual dialogue with native speakers and guided practice.",
+                  tutor: "Elena Rodriguez",
+                  role: "Language Coach",
+                  reviews: 35,
+                  rating: 4.7,
+                  image: "assets/images/spanish-card.webp",
+                  avatar: "assets/images/avatar-lucy.jpg",
+                },
+                {
+                  id: 4,
+                  title: "Digital Marketing",
+                  category: "Marketing",
+                  description:
+                    "Learn SEO, SEM and social media strategies to grow your online presence effectively.",
+                  tutor: "Marcus Sterling",
+                  role: "Marketing Strategist",
+                  reviews: 52,
+                  rating: 4.6,
+                  image: "assets/images/marketing-card.jpg",
+                  avatar: "assets/images/avatar-kelvin.avif",
+                },
+                {
+                  id: 5,
+                  title: "Data Science with R",
+                  category: "Data",
+                  description:
+                    "Analyze complex datasets and create beautiful visualizations with real case studies.",
+                  tutor: "Julianna Moss",
+                  role: "Data Analyst",
+                  reviews: 40,
+                  rating: 4.8,
+                  image: "assets/images/data-card.jpg",
+                  avatar: "assets/images/avatar-rayan.avif",
+                },
+                {
+                  id: 6,
+                  title: "Photography",
+                  category: "Photography",
+                  description:
+                    "Capture stunning portraits and landscapes using natural light and creative composition.",
+                  tutor: "Oliver Twist",
+                  role: "Visual Storyteller",
+                  reviews: 27,
+                  rating: 4.5,
+                  image: "assets/images/photoshop-card.jpg",
+                  avatar: "assets/images/avatar-mariam.avif",
+                },
+                {
+                  id: 7,
+                  title: "React for Beginners",
+                  category: "Programming",
+                  description:
+                    "Learn components, props, state, and project structure with beginner-friendly guidance.",
+                  tutor: "Aisha Bello",
+                  role: "Frontend Developer",
+                  reviews: 44,
+                  rating: 4.8,
+                  image: "assets/images/react-card.png",
+                  avatar: "assets/images/avatar-sandra.avif",
+                },
+                {
+                  id: 8,
+                  title: "Brand Identity Design",
+                  category: "Design",
+                  description:
+                    "Build logos, color systems, and brand visuals that communicate clearly and professionally.",
+                  tutor: "Kelvin Moore",
+                  role: "Brand Designer",
+                  reviews: 31,
+                  rating: 4.6,
+                  image: "assets/images/brand-card.webp",
+                  avatar: "assets/images/avatar-david.jpg",
+                },
+              ];
+
+              const grid = document.getElementById("exploreSkillsGrid");
+              const resultsCount = document.getElementById("resultsCount");
+              const skillSearch = document.getElementById("skillSearch");
+              const navbarSearch = document.getElementById("navbarSearch");
+              const categoryFilter = document.getElementById("categoryFilter");
+              const sortFilter = document.getElementById("sortFilter");
+              const pillButtons = document.querySelectorAll(".pill-btn");
+              const skillDetailsContent = document.getElementById(
+                "skillDetailsContent",
+              );
+
+              let activeCategory = "all";
+
+              function getStars(rating) {
+                const rounded = Math.round(rating);
+                let stars = "";
+
+                for (let i = 1; i <= 5; i++) {
+                  stars +=
+                    i <= rounded
+                      ? `<i class="bi bi-star-fill"></i>`
+                      : `<i class="bi bi-star"></i>`;
+                }
+
+                return stars;
+              }
+
+              function createSkillCard(skill) {
+                return `
+    <div class="col-sm-6 col-lg-4 col-xl-3">
+      <div class="explore-card">
+        <div class="explore-card-image-wrap">
+          <img src="${skill.image}" alt="${skill.title}" class="explore-card-image">
+          <span class="skill-badge">${skill.category}</span>
+        </div>
+
+        <div class="explore-card-body">
+          <h5 class="explore-card-title">${skill.title}</h5>
+          <p class="explore-card-text">${skill.description}</p>
+
+          <div class="tutor-row">
+            <img src="${skill.avatar}" alt="${skill.tutor}" class="tutor-avatar">
+            <div>
+              <p class="tutor-name">${skill.tutor}</p>
+              <p class="tutor-meta">${skill.role}</p>
+            </div>
+          </div>
+
+          <div class="rating-row">
+            <div class="rating-stars">${getStars(skill.rating)} <span class="ms-1">${skill.rating}</span></div>
+            <div class="review-count">${skill.reviews} reviews</div>
+          </div>
+
+          <div class="card-actions">
+            <button class="btn btn-outline-soft view-details-btn" data-id="${skill.id}">
+              View Details
+            </button>
+            <a href="request-skill.html?skill=${encodeURIComponent(skill.title)}&tutor=${encodeURIComponent(skill.tutor)}" class="btn btn-brand">
+              Request Skill
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+              }
+
+              function renderSkills() {
+                const query = (skillSearch.value || navbarSearch.value || "")
+                  .toLowerCase()
+                  .trim();
+                const categoryValue =
+                  activeCategory === "all"
+                    ? categoryFilter.value
+                    : activeCategory;
+                const selectedCategory = categoryValue.toLowerCase();
+
+                let filteredSkills = [...skillsData].filter((skill) => {
+                  const matchesSearch =
+                    skill.title.toLowerCase().includes(query) ||
+                    skill.tutor.toLowerCase().includes(query) ||
+                    skill.category.toLowerCase().includes(query);
+
+                  const matchesCategory =
+                    selectedCategory === "all" ||
+                    skill.category.toLowerCase() === selectedCategory;
+
+                  return matchesSearch && matchesCategory;
+                });
+
+                switch (sortFilter.value) {
+                  case "rating":
+                    filteredSkills.sort((a, b) => b.rating - a.rating);
+                    break;
+                  case "reviews":
+                    filteredSkills.sort((a, b) => b.reviews - a.reviews);
+                    break;
+                  case "title":
+                    filteredSkills.sort((a, b) =>
+                      a.title.localeCompare(b.title),
+                    );
+                    break;
+                  default:
+                    break;
+                }
+
+                grid.innerHTML = "";
+
+                if (filteredSkills.length === 0) {
+                  grid.innerHTML = `
+      <div class="col-12">
+        <div class="empty-state">
+          <i class="bi bi-search"></i>
+          <h5>No skills found</h5>
+          <p class="mb-0">Try another keyword or choose a different category.</p>
+        </div>
+      </div>
+    `;
+                } else {
+                  filteredSkills.forEach((skill) => {
+                    grid.innerHTML += createSkillCard(skill);
+                  });
+                }
+
+                resultsCount.textContent = `${filteredSkills.length} skill${filteredSkills.length !== 1 ? "s" : ""} found`;
+
+                bindDetailButtons(filteredSkills);
+              }
+
+              function bindDetailButtons(filteredSkills) {
+                const detailButtons =
+                  document.querySelectorAll(".view-details-btn");
+
+                detailButtons.forEach((button) => {
+                  button.addEventListener("click", () => {
+                    const skillId = Number(button.dataset.id);
+                    const selectedSkill = filteredSkills.find(
+                      (skill) => skill.id === skillId,
+                    );
+
+                    if (!selectedSkill) return;
+
+                    skillDetailsContent.innerHTML = `
+        <img src="${selectedSkill.image}" alt="${selectedSkill.title}" class="details-hero">
+        <div class="details-body">
+          <span class="details-pill">${selectedSkill.category}</span>
+          <h3 class="mb-2">${selectedSkill.title}</h3>
+          <p class="text-muted mb-3">${selectedSkill.description}</p>
+
+          <div class="details-user">
+            <img src="${selectedSkill.avatar}" alt="${selectedSkill.tutor}">
+            <div>
+              <h6 class="mb-1">${selectedSkill.tutor}</h6>
+              <p class="mb-0 text-muted">${selectedSkill.role}</p>
+            </div>
+          </div>
+
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <span class="results-count">${selectedSkill.rating} rating</span>
+            <span class="results-count">${selectedSkill.reviews} reviews</span>
+          </div>
+
+          <p class="mb-4">
+            This skill exchange allows learners to connect directly with peers who have practical experience in the subject area.
+            You can request a session and offer a skill in return.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a href="request-skill.html?skill=${encodeURIComponent(selectedSkill.title)}&tutor=${encodeURIComponent(selectedSkill.tutor)}" class="btn btn-brand">
+              Request Skill
+            </a>
+            <button type="button" class="btn btn-outline-soft" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+
+                    const modal = new bootstrap.Modal(
+                      document.getElementById("skillDetailsModal"),
+                    );
+                    modal.show();
+                  });
+                });
+              }
+
+              skillSearch.addEventListener("input", () => {
+                navbarSearch.value = skillSearch.value;
+                renderSkills();
+              });
+
+              navbarSearch.addEventListener("input", () => {
+                skillSearch.value = navbarSearch.value;
+                renderSkills();
+              });
+
+              categoryFilter.addEventListener("change", () => {
+                activeCategory = "all";
+                pillButtons.forEach((btn) => btn.classList.remove("active"));
+                document
+                  .querySelector('.pill-btn[data-category="all"]')
+                  .classList.add("active");
+                renderSkills();
+              });
+
+              sortFilter.addEventListener("change", renderSkills);
+
+              pillButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                  pillButtons.forEach((btn) => btn.classList.remove("active"));
+                  button.classList.add("active");
+
+                  activeCategory = button.dataset.category;
+                  categoryFilter.value =
+                    activeCategory === "all" ? "all" : activeCategory;
+                  renderSkills();
+                });
+              });
+
+              renderSkills();
+            </script>
+
+            /* Explorer Script end */
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/explore.js"></script>
+  </body>
+</html>

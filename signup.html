@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | SkillSwap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <section class="auth-page">
+    <div class="container">
+      <div class="auth-shell">
+
+        <!-- Left: form -->
+        <div class="auth-form-side">
+          <a href="index.html" class="auth-brand">
+            <span class="brand-logo">S</span>
+            <span>SkillSwap</span>
+          </a>
+
+          <div class="auth-form-wrap">
+            <h1 class="auth-title">Create Account</h1>
+            <p class="auth-subtitle">or use your email for registration</p>
+
+            <form id="signupForm" novalidate>
+              <div class="input-group-custom">
+                <span class="input-icon"><i class="fa-regular fa-user"></i></span>
+                <input type="text" id="fullName" class="form-control auth-input" placeholder="Name">
+              </div>
+
+              <div class="input-group-custom">
+                <span class="input-icon"><i class="fa-regular fa-envelope"></i></span>
+                <input type="email" id="email" class="form-control auth-input" placeholder="Email">
+              </div>
+
+              <div class="input-group-custom">
+                <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" id="password" class="form-control auth-input" placeholder="Password">
+              </div>
+
+              <div class="input-group-custom">
+                <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" id="confirmPassword" class="form-control auth-input" placeholder="Confirm Password">
+              </div>
+
+              <div id="signupFeedback" class="auth-feedback"></div>
+
+              <button type="submit" class="btn auth-btn-primary w-100">Sign Up</button>
+            </form>
+
+            <p class="mobile-switch d-lg-none mt-4">
+              Already have an account?
+              <a href="login.html">Sign In</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: welcome panel -->
+        <div class="auth-info-side">
+          <div class="auth-info-content">
+            <h2>Welcome Back!</h2>
+            <p>Already have an account?</p>
+            <a href="login.html" class="btn auth-btn-ghost">Sign In</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="signup.js">
+    const signupForm = document.getElementById("signupForm");
+const fullName = document.getElementById("fullName");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const signupFeedback = document.getElementById("signupFeedback");
+
+function showFeedback(message, type) {
+  signupFeedback.className = `auth-feedback ${type}`;
+  signupFeedback.textContent = message;
+}
+
+signupForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const nameValue = fullName.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const confirmValue = confirmPassword.value.trim();
+
+  if (!nameValue || !emailValue || !passwordValue || !confirmValue) {
+    showFeedback("Please fill in all fields.", "error");
+    return;
+  }
+
+  if (!emailValue.includes("@") || !emailValue.includes(".")) {
+    showFeedback("Please enter a valid email address.", "error");
+    return;
+  }
+
+  if (passwordValue.length < 6) {
+    showFeedback("Password must be at least 6 characters long.", "error");
+    return;
+  }
+
+  if (passwordValue !== confirmValue) {
+    showFeedback("Passwords do not match.", "error");
+    return;
+  }
+
+  const users = JSON.parse(localStorage.getItem("skillSwapUsers")) || [];
+
+  const existingUser = users.find((user) => user.email === emailValue);
+
+  if (existingUser) {
+    showFeedback("An account with this email already exists.", "error");
+    return;
+  }
+
+  const newUser = {
+    id: Date.now(),
+    name: nameValue,
+    email: emailValue,
+    password: passwordValue
+  };
+
+  users.push(newUser);
+  localStorage.setItem("skillSwapUsers", JSON.stringify(users));
+
+  showFeedback("Account created successfully. Redirecting...", "success");
+
+  signupForm.reset();
+
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 1200);
+});
+  </script>
+</body>
+</html>

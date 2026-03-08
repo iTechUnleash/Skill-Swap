@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Skill | SkillSwap</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-logo">S</span>
+        <span>SkillSwap</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <div class="search-box d-none d-lg-flex align-items-center px-3">
+            <i class="bi bi-search text-muted me-2"></i>
+            <input type="text" class="border-0 bg-transparent w-100" placeholder="Search skills..." />
+          </div>
+          <a href="signup.html" class="btn btn-brand">Join Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <section class="request-page py-5">
+    <div class="container">
+      <div class="request-wrap mx-auto">
+
+        <a href="explore.html" class="back-link mb-4 d-inline-flex align-items-center gap-2">
+          <i class="bi bi-arrow-left"></i>
+          <span>Back</span>
+        </a>
+
+        <div class="row g-4 align-items-start">
+          <!-- Form side -->
+          <div class="col-lg-8">
+            <div class="request-card">
+              <span class="badge badge-soft mb-3 text-uppercase">New Proposal</span>
+              <h1 class="request-title">Request a Skill</h1>
+              <p class="request-subtitle">
+                Send a personalized proposal to swap your expertise with another member.
+              </p>
+
+              <div class="requested-skill-box mb-4">
+                <p class="small-label mb-2">Skill Requested</p>
+                <h4 id="requestedSkillTitle" class="mb-1">Advanced Python Programming</h4>
+                <p id="requestedRecipient" class="recipient-text mb-0">Recipient: Alex Rivera</p>
+              </div>
+
+              <form id="requestSkillForm">
+                <div class="mb-4">
+                  <label for="offerSkill" class="form-label">What will you offer in return?</label>
+                  <p class="helper-text">Select one or more skills from your teaching list</p>
+                  <select id="offerSkill" class="form-select custom-input" required>
+                    <option value="">Select from your teaching list</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="HTML & CSS">HTML & CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="React Fundamentals">React Fundamentals</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="Public Speaking">Public Speaking</option>
+                  </select>
+                </div>
+
+                <div class="mb-4">
+                  <label for="message" class="form-label">Your Message</label>
+                  <p class="helper-text">Explain why you'd like to swap and how you can help them</p>
+                  <textarea
+                    id="message"
+                    class="form-control custom-input textarea-input"
+                    rows="7"
+                    required
+                  >Hi! I've been looking to deepen my knowledge in this skill. In exchange, I can offer one of my strengths and help you grow in return. I believe this exchange will be beneficial for both of us.</textarea>
+                </div>
+
+                <div class="form-feedback mb-3" id="formFeedback"></div>
+
+                <div class="d-flex flex-wrap gap-3">
+                  <a href="explore.html" class="btn btn-soft px-4">Cancel</a>
+                  <button type="submit" class="btn btn-brand px-4">Send Request</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Tip side -->
+          <div class="col-lg-4">
+            <div class="tip-card">
+              <div class="tip-icon mb-3">
+                <i class="bi bi-lightbulb-fill"></i>
+              </div>
+              <h5 class="mb-2">Pro Tip for Skill Exchange</h5>
+              <p class="mb-0">
+                Personalized messages have a higher acceptance rate. Be specific about what you want to learn and what unique value you bring to the table.
+              </p>
+            </div>
+
+            <div class="preview-card mt-4">
+              <p class="small-label mb-2">Proposal Preview</p>
+              <div class="preview-item mb-3">
+                <span class="preview-key">Requested Skill:</span>
+                <span id="previewSkill">Advanced Python Programming</span>
+              </div>
+              <div class="preview-item mb-3">
+                <span class="preview-key">Recipient:</span>
+                <span id="previewTutor">Alex Rivera</span>
+              </div>
+              <div class="preview-item mb-3">
+                <span class="preview-key">Offering:</span>
+                <span id="previewOffer">Not selected</span>
+              </div>
+              <div class="preview-item">
+                <span class="preview-key d-block mb-2">Message:</span>
+                <div id="previewMessage" class="preview-message">
+                  Hi! I've been looking to deepen my knowledge in this skill...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="request-skill.js">
+    const requestedSkillTitle = document.getElementById("requestedSkillTitle");
+const requestedRecipient = document.getElementById("requestedRecipient");
+const previewSkill = document.getElementById("previewSkill");
+const previewTutor = document.getElementById("previewTutor");
+const previewOffer = document.getElementById("previewOffer");
+const previewMessage = document.getElementById("previewMessage");
+
+const offerSkill = document.getElementById("offerSkill");
+const message = document.getElementById("message");
+const requestSkillForm = document.getElementById("requestSkillForm");
+const formFeedback = document.getElementById("formFeedback");
+
+// Get values from URL
+const params = new URLSearchParams(window.location.search);
+const skill = params.get("skill");
+const tutor = params.get("tutor");
+
+// Fill requested skill and tutor dynamically
+if (skill) {
+  requestedSkillTitle.textContent = skill;
+  previewSkill.textContent = skill;
+}
+
+if (tutor) {
+  requestedRecipient.textContent = `Recipient: ${tutor}`;
+  previewTutor.textContent = tutor;
+}
+
+// Live preview update
+offerSkill.addEventListener("change", function () {
+  previewOffer.textContent = this.value || "Not selected";
+});
+
+message.addEventListener("input", function () {
+  const trimmedMessage = this.value.trim();
+  previewMessage.textContent = trimmedMessage || "No message yet.";
+});
+
+// Form submit
+requestSkillForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const selectedOffer = offerSkill.value.trim();
+  const userMessage = message.value.trim();
+
+  if (!selectedOffer || !userMessage) {
+    formFeedback.className = "form-feedback error";
+    formFeedback.textContent = "Please select a skill to offer and enter your message.";
+    return;
+  }
+
+  const newRequest = {
+    id: Date.now(),
+    requestedSkill: requestedSkillTitle.textContent,
+    recipient: previewTutor.textContent,
+    offeredSkill: selectedOffer,
+    message: userMessage,
+    status: "Pending",
+    createdAt: new Date().toLocaleString()
+  };
+
+  const existingRequests = JSON.parse(localStorage.getItem("skillRequests")) || [];
+  existingRequests.push(newRequest);
+  localStorage.setItem("skillRequests", JSON.stringify(existingRequests));
+
+  formFeedback.className = "form-feedback success";
+  formFeedback.textContent = "Skill request sent successfully.";
+
+  requestSkillForm.reset();
+  previewOffer.textContent = "Not selected";
+  previewMessage.textContent = "No message yet.";
+
+  setTimeout(() => {
+    window.location.href = "dashboard.html";
+  }, 1200);
+});
+  </script>
+</body>
+</html>

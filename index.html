@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSwap | Learn a Skill, Teach a Skill</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-logo">S</span>
+        <span>SkillSwap</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto gap-lg-3">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-2">
+          <div class="search-box d-none d-lg-flex align-items-center px-3">
+            <i class="bi bi-search text-muted me-2"></i>
+            <input type="text" class="border-0 bg-transparent w-100" placeholder="Search skills..." />
+          </div>
+          <a href="signup.html" class="btn btn-brand">Join Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero-section py-5 py-lg-6">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <span class="badge badge-soft mb-3">The world’s largest skill network</span>
+          <h1 class="hero-title mb-3">Learn a Skill,<br><span>Teach a Skill</span></h1>
+          <p class="hero-text mb-4">
+            A modern skill-swapping platform where you can trade your expertise with others around the world.
+            No money, just knowledge.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="signup.html" class="btn btn-brand">Get Started for Free</a>
+            <a href="explore.html" class="btn btn-soft">Browse Skills</a>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6">
+          <div class="hero-image-card">
+            <img src="assets/images/Overlay+Shadow.png
+            " class="img-fluid rounded-4" alt="SkillSwap hero">
+            <div class="hero-stat shadow-sm">
+              <strong>120k+</strong>
+              <span>Active Learners</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- How it works -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">How SkillExchange Works</h2>
+        <p class="section-subtitle">Trading your expertise is simple. Follow these three steps to start your growth journey.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="info-card h-100 text-center">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-person-plus"></i></div>
+            <h5>Create a Profile</h5>
+            <p>Sign up and list the skills you have to offer and the ones you want to master.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-card h-100 text-center">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-people"></i></div>
+            <h5>Find a Match</h5>
+            <p>Our smart algorithm connects you with mentors and students who match your needs.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="info-card h-100 text-center">
+            <div class="icon-circle mx-auto mb-3"><i class="bi bi-camera-video"></i></div>
+            <h5>Exchange Skills</h5>
+            <p>Schedule a session and start your collaborative learning journey.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular skills -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="section-title mb-1">Explore Popular Skills</h2>
+          <p class="section-subtitle mb-0">Discover what the community is learning right now.</p>
+        </div>
+        <a href="explore.html" class="view-link">View all categories</a>
+      </div>
+
+      <div class="row g-4" id="popularSkills">
+        <!-- JS injected cards -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why SkillSwap -->
+  <section class="why-section py-5">
+    <div class="container">
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6">
+          <h2 class="text-white section-title mb-4">Why Trade Skills on SkillSwap?</h2>
+
+          <div class="why-item">
+            <h6>Completely Free</h6>
+            <p>No hidden fees or subscriptions. Your currency is your own expertise.</p>
+          </div>
+
+          <div class="why-item">
+            <h6>Global Community</h6>
+            <p>Connect with experts from around the world without leaving your home.</p>
+          </div>
+
+          <div class="why-item">
+            <h6>Quality Assurance</h6>
+            <p>A strong rating system helps users discover high-quality learning partners.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="stat-card"><h3>98%</h3><p>Satisfaction Rate</p></div>
+            </div>
+            <div class="col-6">
+              <div class="stat-card"><h3>500+</h3><p>Unique Skills</p></div>
+            </div>
+            <div class="col-6">
+              <div class="stat-card"><h3>24/7</h3><p>Learning Access</p></div>
+            </div>
+            <div class="col-6">
+              <div class="stat-card"><h3>1M+</h3><p>Lessons Swapped</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">What Our Members Say</h2>
+        <p class="section-subtitle">Real stories from people who've transformed their lives through skill-swapping.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <h6>Sarah Jenkins</h6>
+            <small>UI Designer</small>
+            <p class="mt-3">“I taught French to a developer in Berlin, and in exchange, he taught me React.”</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <h6>Marcus Chen</h6>
+            <small>Software Engineer</small>
+            <p class="mt-3">“The community is supportive and the matches are spot on.”</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <h6>Elena Rodriguez</h6>
+            <small>Marketing Lead</small>
+            <p class="mt-3">“This platform has saved me thousands in course fees.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5">
+    <div class="container">
+      <div class="cta-box text-center">
+        <h2 class="section-title">Ready to expand your horizons?</h2>
+        <p class="section-subtitle">Join 120,000+ experts and learners. No credit card required. Just a passion for growth.</p>
+        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+          <a href="signup.html" class="btn btn-brand">Start Swapping Now</a>
+          <a href="explore.html" class="btn btn-soft">View Skill Feed</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5">
+    <div class="container faq-wrap">
+      <div class="text-center mb-4">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Got questions? We've got answers.</p>
+      </div>
+
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Is SkillExchange really free?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Yes. Users exchange skills, not money.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Do I need to be an expert to teach?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">No. You only need a skill that can help someone else.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              How are sessions conducted?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">Sessions can be scheduled virtually or physically depending on users.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- JS to inject popular skills start -->
+  <script>
+    const popularSkills = [
+  {
+    title: "UI/UX Design",
+    description: "Master Figma, user research, and prototyping with professional designers.",
+    user: "Sarah Jenkins",
+    image: "assets/images/uiux.jpg"
+  },
+  {
+    title: "Full-Stack Dev",
+    description: "Learn React, Node.js, and database architecture from industry experts.",
+    user: "David Chen",
+    image: "assets/images/fullstack-card.webp"
+  },
+  {
+    title: "Gourmet Cooking",
+    description: "Trade your tech skills for world-class culinary techniques and recipes.",
+    user: "Elena Rodriguez",
+    image: "assets/images/cooking-card.jpg"
+  },
+  {
+    title: "Photography",
+    description: "Learn lighting, composition, and post-processing from visual artists.",
+    user: "Oliver Twist",
+    image: "assets/images/graphic-card.png"
+  }
+];
+
+const popularSkillsContainer = document.getElementById("popularSkills");
+
+if (popularSkillsContainer) {
+  popularSkills.forEach((skill) => {
+    popularSkillsContainer.innerHTML += `
+      <div class="col-md-6 col-lg-3">
+        <div class="skill-card h-100">
+          <img src="${skill.image}" alt="${skill.title}">
+          <div class="skill-card-body">
+            <h5>${skill.title}</h5>
+            <p>${skill.description}</p>
+            <div class="skill-user mb-3">${skill.user}</div>
+            <a href="request-skill.html" class="btn btn-soft w-100">Request Skill</a>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+
+  </script>
+
+  <!-- JS to inject popular skills end -->
+
+  <!-- Footer -->
+  <footer class="footer-section pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5 class="mb-3">SkillExchange</h5>
+          <p class="footer-text">
+            The global platform for collaborative learning. Empowering individuals to share knowledge and build careers together.
+          </p>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6>Platform</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">How it Works</a></li>
+            <li><a href="#">Popular Skills</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Safety & Trust</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6>Community</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Mentors</a></li>
+            <li><a href="#">Guidelines</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6>Company</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between gap-2">
+        <small>© 2024 SkillExchange Platform Inc. All rights reserved.</small>
+        <small>Terms of Service • Cookie Settings</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
