@@ -1287,7 +1287,7 @@ body {
     padding: 24px 12px;
   }
 }
-/* Dashboard page End */
+/* Dashboard page End */  
 
 
 /* Signup page Start */
@@ -1856,3 +1856,13 @@ body {
 }
 
 /*Create Profile page End */
+
+/* Navbar Logo Start */
+
+.navbar-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* Navbar Logo End */

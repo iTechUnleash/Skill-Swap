@@ -1,27 +1,28 @@
-const popularSkills = [
+
+    const popularSkills = [
   {
     title: "UI/UX Design",
     description: "Master Figma, user research, and prototyping with professional designers.",
     user: "Sarah Jenkins",
-    image: "assets/images/skill-1.jpg"
+    image: "assets/images/uiux.jpg"
   },
   {
     title: "Full-Stack Dev",
     description: "Learn React, Node.js, and database architecture from industry experts.",
     user: "David Chen",
-    image: "assets/images/skill-2.jpg"
+    image: "assets/images/fullstack-card.webp"
   },
   {
     title: "Gourmet Cooking",
     description: "Trade your tech skills for world-class culinary techniques and recipes.",
     user: "Elena Rodriguez",
-    image: "assets/images/skill-3.jpg"
+    image: "assets/images/cooking-card.jpg"
   },
   {
     title: "Photography",
     description: "Learn lighting, composition, and post-processing from visual artists.",
     user: "Oliver Twist",
-    image: "assets/images/skill-4.jpg"
+    image: "assets/images/graphic-card.png"
   }
 ];
 
