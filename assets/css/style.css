@@ -110,6 +110,7 @@ a {
 .footer-text {
   color: var(--text-muted);
   max-width: 580px;
+  text-align: center;
 }
 
 .hero-image-card {
